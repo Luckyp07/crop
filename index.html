@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .container{
+            width:28%;
+            font-size:20px;
+            padding:40px;
+            margin:auto;
+            border:2px solid black;
+        }
+        .btn input[type='button']{
+            width:90px;
+            padding: 2px;
+            margin: 2px 0px;
+            position: relative;
+            left: 13px;
+            top: 20px;
+            height: 60px;
+            cursor: pointer;
+            font-size: 24px;
+            transition: 0.5s;
+            background-color: #495250;
+            border-radius: 6px;
+            color: white;
+         }
+         .btn input[type='button']:hover{
+            background-color: white;
+            color: black;
+         }
+        .input{
+            width:90%;
+            height:40px;
+            margin:10px;
+            border:2px solid black;
+            font-size:26px;
+        }
+        h1{
+            text-align:center;
+        }
+    </style>
+    <script>
+        function solve(val){
+            var a = document.getElementById('input');
+            a.value += val;
+        }
+        function result(){
+            var b = document.getElementById('input').value;
+            var c = eval(b);
+            document.getElementById('input').value=c;
+        }
+        function clear() {
+            var d = document.getElementById('input');
+            d.value = '';
+         }
+         function back() {
+            var ev = document.getElementById('input');
+            ev.value = ev.value.slice(0,-1);
+         }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculator</h1>
+        <input type="text" class="input" id='input' readonly><br><br>
+        <div class="btn">
+            <input type="button" value="AC" onclick="clear()">
+            <input type="button" value="%" onclick="solve('%')">
+            <input type="button" value="←" onclick="back('←')">
+            <input type="button" value="÷" onclick="solve('÷')"><br>
+            <input type="button" value="9" onclick="solve('9')">
+            <input type="button" value="8" onclick="solve('8')">
+            <input type="button" value="7" onclick="solve('7')">
+            <input type="button" value="*" onclick="solve('*')"><br>
+            <input type="button" value="6" onclick="solve('6')">
+            <input type="button" value="5" onclick="solve('5')">
+            <input type="button" value="4" onclick="solve('4')">
+            <input type="button" value="+" onclick="solve('+')"><br>
+            <input type="button" value="3" onclick="solve('3')">
+            <input type="button" value="2" onclick="solve('2')">
+            <input type="button" value="1" onclick="solve('1')">
+            <input type="button" value="-" onclick="solve('-')"><br>
+            <input type="button" value="00" onclick="solve('00')">
+            <input type="button" value="0" onclick="solve('0')">
+            <input type="button" value="." onclick="solve('.')">
+            <input type="button" value="=" onclick="result()">
+    </div>
+</body>
+</html>
